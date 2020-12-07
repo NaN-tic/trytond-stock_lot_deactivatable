@@ -1,16 +1,12 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 import unittest
-import doctest
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from decimal import Decimal
 
 import trytond.tests.test_tryton
 from trytond.tests.test_tryton import ModuleTestCase, with_transaction
-from trytond.tests.test_tryton import doctest_teardown
-from trytond.tests.test_tryton import doctest_checker
-from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 from trytond.modules.company.tests import create_company, set_company
@@ -29,7 +25,6 @@ class StockLotDeactivatableTestCase(ModuleTestCase):
         Product = pool.get('product.product')
         Template = pool.get('product.template')
         Uom = pool.get('product.uom')
-        User= pool.get('res.user')
 
         company = create_company()
         with set_company(company):
