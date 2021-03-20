@@ -17,18 +17,6 @@
         </record>
 
         <!-- cron task -->
-        <record model="res.user" id="user_deactivate_lots_without_stock">
-            <field name="login">user_cron_deactivate_lots_without_stock</field>
-            <field name="name">Cron Deactivate Lots without Stock</field>
-            <field name="signature"></field>
-            <field name="active" eval="False"/>
-        </record>
-        <record model="res.user-res.group"
-            id="user_deactivate_lots_without_stock_group_stock">
-            <field name="user" ref="user_deactivate_lots_without_stock"/>
-            <field name="group" ref="stock.group_stock"/>
-        </record>
-
         <record model="ir.cron" id="cron_deactivate_lots_without_stock">
             <field name="method">stock.lot|deactivate_lots_without_stock</field>
             <field name="interval_number" eval="1"/>
