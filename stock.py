@@ -4,7 +4,7 @@ import logging
 from dateutil import relativedelta
 from sql import From, Join, Null, Select, Table, Union
 
-from trytond.model import fields
+from trytond.model import DeactivableMixin, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
 
@@ -20,13 +20,8 @@ class Period(metaclass=PoolMeta):
             return super(Period, cls).close(periods)
 
 
-class Lot(metaclass=PoolMeta):
+class Lot(DeactivableMixin, metaclass=PoolMeta):
     __name__ = 'stock.lot'
-    active = fields.Boolean('Active')
-
-    @staticmethod
-    def default_active():
-        return True
 
     @classmethod
     def deactivate_lots_without_stock(cls, lots=None, margin_days=1):
