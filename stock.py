@@ -4,11 +4,9 @@ import logging
 from dateutil import relativedelta
 from sql import From, Join, Null, Select, Table, Union
 
-from trytond.model import DeactivableMixin, fields
+from trytond.model import DeactivableMixin
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
-
-__all__ = ['Lot', 'Move', 'Period']
 
 
 class Period(metaclass=PoolMeta):
