@@ -71,7 +71,13 @@ class Lot(metaclass=PoolMeta):
             lots = cls.search(domain)
         logging.getLogger(cls.__name__).info("Deactivating %s lots", len(lots))
         if lots:
-            cls.write(lots, {'active': False})
+            # Use SQL update as now the sled date may be required and we want
+            # to be able to deactivate anyway.
+            table = cls.__table__()
+            query = table.update([table.active], [False], where=table.id.in_([
+                        x.id for x in lots]))
+            cursor = Transaction().connection.cursor()
+            cursor.execute(*query)
 
 
 class Move(metaclass=PoolMeta):
