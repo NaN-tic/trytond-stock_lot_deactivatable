@@ -79,6 +79,24 @@ class Lot(metaclass=PoolMeta):
             cursor = Transaction().connection.cursor()
             cursor.execute(*query)
 
+            # Clear cache to ensure lots are reloaded if accessed after UPDATE
+
+            # Increase transaction counter
+            Transaction().counter += 1
+
+            # Clean local cache
+            for record in lots:
+                local_cache = record._local_cache.get(record.id)
+                if local_cache:
+                    local_cache.clear()
+
+            # Clean cursor cache
+            for cache in Transaction().cache.values():
+                if cls.__name__ in cache:
+                    for record in lots:
+                        if record.id in cache[cls.__name__]:
+                            cache[cls.__name__][record.id].clear()
+
 
 class Move(metaclass=PoolMeta):
     __name__ = 'stock.move'
