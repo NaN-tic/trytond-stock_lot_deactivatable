@@ -1,19 +1,19 @@
-# The COPYRIGHT file at the top level of this repository contains the full
-# copyright notices and license terms.
-import unittest
+
+# This file is part of Tryton.  The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
+
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from decimal import Decimal
 
-import trytond.tests.test_tryton
 from trytond.tests.test_tryton import ModuleTestCase, with_transaction
 from trytond.pool import Pool
 
-from trytond.modules.company.tests import create_company, set_company
+from trytond.modules.company.tests import create_company, set_company, CompanyTestMixin
 
 
-class StockLotDeactivatableTestCase(ModuleTestCase):
-    'Test Stock Lot Deactivatable module'
+class StockLotDeactivatableTestCase(CompanyTestMixin, ModuleTestCase):
+    'Test StockLotDeactivatable module'
     module = 'stock_lot_deactivatable'
 
     @with_transaction()
@@ -201,8 +201,5 @@ class StockLotDeactivatableTestCase(ModuleTestCase):
                     ('6', True),
                     ])
 
-def suite():
-    suite = trytond.tests.test_tryton.suite()
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
-            StockLotDeactivatableTestCase))
-    return suite
+
+del ModuleTestCase
