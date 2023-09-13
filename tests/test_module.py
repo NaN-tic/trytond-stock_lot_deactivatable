@@ -89,7 +89,7 @@ class StockLotDeactivatableTestCase(CompanyTestMixin, ModuleTestCase):
             moves = Move.create([{
                         'product': product.id,
                         'lot': lot.id,
-                        'uom': unit.id,
+                        'unit': unit.id,
                         'quantity': abs(quantity),
                         'from_location': (supplier.id if quantity > 0
                             else storage.id),
