@@ -4,7 +4,6 @@ import logging
 from dateutil import relativedelta
 from sql import From, Join, Null, Select, Table, Union
 
-from trytond.model import DeactivableMixin
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
 
@@ -18,7 +17,7 @@ class Period(metaclass=PoolMeta):
             return super(Period, cls).close(periods)
 
 
-class Lot(DeactivableMixin, metaclass=PoolMeta):
+class Lot(metaclass=PoolMeta):
     __name__ = 'stock.lot'
 
     @classmethod
