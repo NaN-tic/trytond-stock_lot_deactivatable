@@ -2,12 +2,13 @@
 # copyright notices and license terms.
 from trytond.pool import Pool
 from . import ir
+from . import shipment
 from . import stock
-
 
 def register():
     Pool.register(
         ir.Cron,
+        shipment.ShipmentOutReturn,
         stock.Lot,
         stock.Move,
         stock.Period,
