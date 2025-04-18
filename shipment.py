@@ -1,5 +1,6 @@
 from trytond.pool import Pool, PoolMeta
 
+
 class ShipmentOutReturn(metaclass=PoolMeta):
     __name__ = 'stock.shipment.out.return'
 
