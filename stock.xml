@@ -4,6 +4,8 @@
 <tryton>
     <data>
         <!-- cron task -->
+    </data>
+    <data noupdate="1">
         <record model="ir.cron" id="cron_deactivate_lots_without_stock">
             <field name="method">stock.lot|deactivate_lots_without_stock</field>
             <field name="interval_number" eval="1"/>
