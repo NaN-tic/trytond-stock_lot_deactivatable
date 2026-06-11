@@ -61,6 +61,9 @@ class Lot(metaclass=PoolMeta):
         with Transaction().set_context(locations=location_ids,
                 stock_date_end=stock_end_date):
             lots = cls.search(domain)
+            # Quantity search with multiple locations may match lots
+            # with stock in another location; see issue14887.
+            lots = [l for l in lots if l.quantity == 0]
         logging.getLogger(cls.__name__).info("Deactivating %s lots", len(lots))
         if lots:
             # Use SQL update as now the sled date may be required and we want
