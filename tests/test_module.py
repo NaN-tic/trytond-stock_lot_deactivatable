@@ -19,6 +19,7 @@ class StockLotDeactivatableTestCase(CompanyTestMixin, ModuleTestCase):
     @with_transaction()
     def test_deactivate_lots_without_stock(self):
         pool = Pool()
+        Configuration = pool.get('stock.configuration')
         Location = pool.get('stock.location')
         Lot = pool.get('stock.lot')
         Move = pool.get('stock.move')
@@ -189,13 +190,16 @@ class StockLotDeactivatableTestCase(CompanyTestMixin, ModuleTestCase):
                     ('6', True),
                     ])
 
+            config = Configuration(1)
+            config.stock_lot_margin_days = 2
+            config.save()
             Lot.deactivate_lots_without_stock()  # margin_days
             lots = Lot.browse([l.id for l in lots])
             self.assertEqual([(l.number, l.active) for l in lots], [
                     ('0', False),
                     ('1', False),
                     ('2', True),
-                    ('3', False),
+                    ('3', True),
                     ('4', True),
                     ('5', True),
                     ('6', True),

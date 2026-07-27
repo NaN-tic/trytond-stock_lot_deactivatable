@@ -9,6 +9,8 @@ def register():
     Pool.register(
         ir.Cron,
         shipment.ShipmentOutReturn,
+        stock.Configuration,
+        stock.ConfigurationLotDeactivatable,
         stock.Lot,
         stock.Move,
         stock.Period,

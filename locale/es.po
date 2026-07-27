@@ -6,6 +6,18 @@ msgctxt "field:stock.lot,active:"
 msgid "Active"
 msgstr "Activo"
 
+msgctxt "field:stock.configuration,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "Días de margen de lotes"
+
+msgctxt "help:stock.configuration,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "Días sin stock antes de que un lote pueda desactivarse."
+
 msgctxt "model:ir.cron,name:cron_deactivate_lots_without_stock"
 msgid "Deactivate Lots without Stock"
 msgstr "Desactivar lotes sin estoc"
+
+msgctxt "view:stock.configuration:"
+msgid "Lot Deactivation"
+msgstr "Desactivación de lotes"
