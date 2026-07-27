@@ -4,8 +4,32 @@ import logging
 from dateutil import relativedelta
 from sql import From, Join, Null, Select, Table, Union
 
+from trytond.model import ModelSQL, ValueMixin, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
+
+
+stock_lot_margin_days = fields.Integer(
+    "Lot Margin Days",
+    help="Days without stock before a lot can be deactivated.")
+
+
+class Configuration(metaclass=PoolMeta):
+    __name__ = 'stock.configuration'
+
+    stock_lot_margin_days = fields.MultiValue(stock_lot_margin_days)
+
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+        if field == 'stock_lot_margin_days':
+            return pool.get('stock.configuration.lot_deactivatable')
+        return super().multivalue_model(field)
+
+
+class ConfigurationLotDeactivatable(ModelSQL, ValueMixin):
+    __name__ = 'stock.configuration.lot_deactivatable'
+    stock_lot_margin_days = stock_lot_margin_days
 
 
 class Period(metaclass=PoolMeta):
@@ -21,17 +45,20 @@ class Lot(metaclass=PoolMeta):
     __name__ = 'stock.lot'
 
     @classmethod
-    def deactivate_lots_without_stock(cls, lots=None, margin_days=1):
+    def deactivate_lots_without_stock(cls, lots=None, margin_days=None):
         '''Deactivate lots that doesn't have stock after <margin_days> nor any
         pending move'''
         pool = Pool()
+        Configuration = pool.get('stock.configuration')
         Date = pool.get('ir.date')
         Location = pool.get('stock.location')
         Move = pool.get('stock.move')
 
         move = Move.__table__()
 
-        assert isinstance(margin_days, int) and margin_days >= 0
+        if not margin_days:
+            config = Configuration(1)
+            margin_days = config.stock_lot_margin_days or 1
 
         warehouses = Location.search([
                 ('type', '=', 'warehouse'),
