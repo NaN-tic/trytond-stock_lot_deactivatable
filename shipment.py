@@ -1,3 +1,4 @@
+from trytond.model import ModelView
 from trytond.pool import Pool, PoolMeta
 
 
@@ -5,6 +6,7 @@ class ShipmentOutReturn(metaclass=PoolMeta):
     __name__ = 'stock.shipment.out.return'
 
     @classmethod
+    @ModelView.button
     def receive(cls, shipments):
         pool = Pool()
         Lot = pool.get('stock.lot')
