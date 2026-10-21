@@ -12,3 +12,5 @@ class Cron(metaclass=PoolMeta):
         cls.method.selection.append(
             ('stock.lot|deactivate_lots_without_stock',
                 "Deactivate Lots without Stock"))
+        cls.methods_company_needed.add(
+            'stock.lot|deactivate_lots_without_stock')
