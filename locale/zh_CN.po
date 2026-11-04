@@ -1,0 +1,40 @@
+#
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:stock.lot,active:"
+msgid "Active"
+msgstr "启用"
+
+msgctxt "field:stock.configuration,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "批次宽限天数"
+
+msgctxt "help:stock.configuration,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "批次无库存达到此天数后方可停用。"
+
+msgctxt "model:ir.cron,name:cron_deactivate_lots_without_stock"
+msgid "Deactivate Lots without Stock"
+msgstr "停用无库存的批次"
+
+msgctxt "view:stock.configuration:"
+msgid "Lot Deactivation"
+msgstr "批次停用"
+
+msgctxt "field:stock.configuration.lot_deactivatable,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "批次宽限天数"
+
+msgctxt "help:stock.configuration.lot_deactivatable,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "批次无库存达到此天数后方可停用。"
+
+msgctxt "selection:ir.cron,method:"
+msgid "Deactivate Lots without Stock"
+msgstr "停用无库存的批次"
