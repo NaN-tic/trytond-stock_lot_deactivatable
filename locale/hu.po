@@ -1,0 +1,40 @@
+#
+msgid ""
+msgstr ""
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:stock.lot,active:"
+msgid "Active"
+msgstr "Aktív"
+
+msgctxt "field:stock.configuration,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "Tételszám türelmi ideje napokban"
+
+msgctxt "help:stock.configuration,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "Készlet nélküli napok száma, amely után a tételszám inaktiválható."
+
+msgctxt "model:ir.cron,name:cron_deactivate_lots_without_stock"
+msgid "Deactivate Lots without Stock"
+msgstr "Készlet nélküli tételszámok inaktiválása"
+
+msgctxt "view:stock.configuration:"
+msgid "Lot Deactivation"
+msgstr "Tételszám inaktiválása"
+
+msgctxt "field:stock.configuration.lot_deactivatable,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "Tételszám türelmi ideje napokban"
+
+msgctxt "help:stock.configuration.lot_deactivatable,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "Készlet nélküli napok száma, amely után a tételszám inaktiválható."
+
+msgctxt "selection:ir.cron,method:"
+msgid "Deactivate Lots without Stock"
+msgstr "Készlet nélküli tételszámok inaktiválása"
