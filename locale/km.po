@@ -1,0 +1,40 @@
+#
+msgid ""
+msgstr ""
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:stock.lot,active:"
+msgid "Active"
+msgstr "សកម្ម"
+
+msgctxt "field:stock.configuration,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "ចំនួនថ្ងៃរង់ចាំមុនបិទឡូត៍"
+
+msgctxt "help:stock.configuration,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "ចំនួនថ្ងៃដែលគ្មានស្តុក មុនអាចបិទឡូត៍។"
+
+msgctxt "model:ir.cron,name:cron_deactivate_lots_without_stock"
+msgid "Deactivate Lots without Stock"
+msgstr "បិទឡូត៍ដែលគ្មានស្តុក"
+
+msgctxt "view:stock.configuration:"
+msgid "Lot Deactivation"
+msgstr "ការបិទឡូត៍"
+
+msgctxt "field:stock.configuration.lot_deactivatable,stock_lot_margin_days:"
+msgid "Lot Margin Days"
+msgstr "ចំនួនថ្ងៃរង់ចាំមុនបិទឡូត៍"
+
+msgctxt "help:stock.configuration.lot_deactivatable,stock_lot_margin_days:"
+msgid "Days without stock before a lot can be deactivated."
+msgstr "ចំនួនថ្ងៃដែលគ្មានស្តុក មុនអាចបិទឡូត៍។"
+
+msgctxt "selection:ir.cron,method:"
+msgid "Deactivate Lots without Stock"
+msgstr "បិទឡូត៍ដែលគ្មានស្តុក"
